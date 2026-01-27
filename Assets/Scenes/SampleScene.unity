@@ -416,7 +416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   worldGenerator: {fileID: 210667241}
   speed: 0.05
-  test: {fileID: 0}
 --- !u!212 &1093767835
 SpriteRenderer:
   serializedVersion: 2
