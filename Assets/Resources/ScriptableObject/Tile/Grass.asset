@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ef920239265ff13826c4ce9b950f95, type: 3}
   m_Name: Grass
   m_EditorClassIdentifier: Assembly-CSharp::TileSpriteData
-  name: Grass
+  id: Grass
   sprites:
   - {fileID: -4531809809410408299, guid: 650b0139b290c56c8af88222867e93fd, type: 3}
   - {fileID: 1583100675, guid: 650b0139b290c56c8af88222867e93fd, type: 3}
