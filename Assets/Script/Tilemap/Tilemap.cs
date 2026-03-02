@@ -47,19 +47,13 @@ namespace Roguelike.Tilemaps{
 
     public class Tilemap
     {
-        private Vector3Int _min;
-        private Vector3Int _max;
-
         public GameObject gameObject = null;
-        
         public Dictionary<Vector3Int, Tile> tiles;
 
         public Tilemap(string name = "Tilemap")
         {
             gameObject = new GameObject(name);
             tiles = new Dictionary<Vector3Int, Tile>();
-            _min = new Vector3Int(0, 0, 0);
-            _max = new Vector3Int(0, 0, 0);
         }
 
 
@@ -71,14 +65,6 @@ namespace Roguelike.Tilemaps{
 
         public void SetTile(Vector3Int position, TileData tileData)
         {
-            _min.x = position.x < _min.x ? position.x : _min.x;
-            _min.y = position.y < _min.y ? position.y : _min.y;
-            _min.z = position.z < _min.z ? position.z : _min.z;
-
-            _max.x = position.x > _max.x ? position.x : _max.x;
-            _max.y = position.y > _max.y ? position.y : _max.y;
-            _max.z = position.z > _max.z ? position.z : _max.z;
-
             tiles[position] = new Tile(position, tileData);
         }
 
