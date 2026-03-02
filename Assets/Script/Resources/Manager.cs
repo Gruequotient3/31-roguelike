@@ -10,7 +10,7 @@ namespace Roguelike.Resources{
             Object[] tilesData = UnityEngine.Resources.LoadAll("ScriptableObject/Tile", typeof(TileSpriteData));
             foreach(TileSpriteData data in tilesData)
             {  
-               ret.Add(data.name, data.sprites); 
+                ret.Add(data.id, data.sprites); 
             }
             return ret;
         }  
