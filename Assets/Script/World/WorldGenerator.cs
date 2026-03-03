@@ -1,22 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Roguelike.Resources;
 using Roguelike.Utils;
 
 public class WorldGenerator : MonoBehaviour
 {
-    private Dictionary<string, Sprite[]> _tileSprites;
     public Dictionary<Vector3Int, Chunk> chunks;
-
 
     public int renderDistance;
     public Transform center;
 
-
     void Awake()
     {
-        _tileSprites = ResourcesManager.LoadTilesData();
         chunks = new Dictionary<Vector3Int, Chunk>();
     }
 
@@ -37,7 +32,7 @@ public class WorldGenerator : MonoBehaviour
                 Vector3Int chunkPos = new Vector3Int(i + pos.x, j + pos.y, 0);
                 if (chunks.ContainsKey(chunkPos)) continue;
                 Chunk newChunk = new Chunk(gameObject, chunkPos);
-                newChunk.Generate(_tileSprites);
+                newChunk.Generate();
                 chunks.Add(chunkPos, newChunk);
             }
         }
