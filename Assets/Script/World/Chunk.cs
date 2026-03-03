@@ -20,7 +20,7 @@ public class Chunk
         tilemap.gameObject.transform.SetParent(parent.transform);
     }
 
-    public void Generate(Dictionary<string, Sprite[]> sprites)
+    public void Generate()
     {
         tilemap.tiles.Clear();
         float[] noiseMap = MapGenerator.Generate(new Vector2Int(k_xSize, k_ySize), new Vector2(position.x, position.y), MapType.PERLIN_NOISE);
@@ -28,40 +28,33 @@ public class Chunk
         {
             for (int x = 0; x < k_xSize; ++x)
             {
-                string type = "";
+                TileType type;
                 int maxz =  Mathf.RoundToInt(noiseMap[y * k_xSize + x] * 5 + 2);
                 switch (maxz)
                 {
                     case 2:
-                        type = "Water";
+                        type = TileType.WATER;
                         break;
                     case 3: 
-                        type = "Sand";
+                        type = TileType.SAND;
                         break;
                     case 4:
-                        type = "Grass";
+                        type = TileType.GRASS;
                         break;
                     case 5:
-                        type = "Rock";
+                        type = TileType.ROCK;
                         break;
                     default:
-                        type = "Dirt";
+                        type = TileType.DIRT;
                         break;
                 }
                 for (int z = maxz; z >= 0; --z)
                 {
-                    TileData tileData = new TileData();
-                    int random;
-                    if (sprites[type].Length == 1) random = 0;
-                    else
-                    {
-                        random = Random.Range(0, 10);
-                        if (random <= 7) random = 0;
-                        else random = Random.Range(1, sprites[type].Length);
-                    }
-                    if (z == maxz) tileData.sprite = sprites[type][random];
-                    else tileData.sprite = sprites["Dirt"][0];
-                    tilemap.SetTile(new Vector3Int(x + position.x * k_xSize, y + position.y * k_ySize, z), tileData);
+                    Tile tile;
+                    Vector3Int tilePosition = new Vector3Int(x + position.x * k_xSize, y + position.y * k_ySize, z);
+                    if (z == maxz) tile = Tile.GetTileFromType(type, tilePosition);
+                    else tile = Tile.GetTileFromType(TileType.DIRT, tilePosition);
+                    tilemap.SetTile(tilePosition, tile);
                 }
             }
         }
