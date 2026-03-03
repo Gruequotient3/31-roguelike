@@ -23,9 +23,9 @@ namespace Roguelike.Tilemaps{
             return tiles[position];
         }
 
-        public void SetTile(Vector3Int position, TileData tileData)
+        public void SetTile(Vector3Int position, Tile tile)
         {
-            tiles[position] = new Tile(position, tileData);
+            tiles[position] = tile;
         }
 
         public void Generate()
