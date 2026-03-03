@@ -5,46 +5,6 @@ using UnityEngine;
 using Roguelike.Utils;
 
 namespace Roguelike.Tilemaps{
-    [Serializable]
-    public struct TileData
-    {
-        public Sprite sprite;
-        public bool seleted;
-    }
-
-    public class Tile
-    {
-        public GameObject gameObject = null;
-
-        private Vector3Int _position;
-        private TileData _tileData;
-
-        public Tile(Vector3Int position, TileData tileData){
-            _position = position;
-            _tileData = tileData;
-        }
-
-        public void Generate()
-        {
-            if (gameObject) UnityEngine.Object.Destroy(gameObject);
-            gameObject = new GameObject("Tile " + _position.x + " " + _position.y + " " + _position.z);
-            SpriteRenderer sp = gameObject.AddComponent<SpriteRenderer>();
-            sp.sprite = _tileData.sprite;
-
-            Vector3 pos = Coordinate.IsoToWorld(_position);
-
-            sp.sortingOrder = -(_position.x + _position.y) + _position.z * 5;
-            gameObject.transform.position = new Vector3(pos.x, pos.y, 0.0f);
-        }
-
-        public Sprite GetSprite(){ return _tileData.sprite; }
-        public void SetSprite(Sprite sprite)
-        {
-            _tileData.sprite = sprite;
-            gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
-        }
-    }
-
     public class Tilemap
     {
         public GameObject gameObject = null;
@@ -63,9 +23,9 @@ namespace Roguelike.Tilemaps{
             return tiles[position];
         }
 
-        public void SetTile(Vector3Int position, TileData tileData)
+        public void SetTile(Vector3Int position, Tile tile)
         {
-            tiles[position] = new Tile(position, tileData);
+            tiles[position] = tile;
         }
 
         public void Generate()

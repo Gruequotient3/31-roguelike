@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ef920239265ff13826c4ce9b950f95, type: 3}
   m_Name: Sand
   m_EditorClassIdentifier: Assembly-CSharp::TileSpriteData
-  id: Sand
+  type: 1
   sprites:
   - {fileID: 93560003, guid: 650b0139b290c56c8af88222867e93fd, type: 3}
   - {fileID: -1032453520, guid: 650b0139b290c56c8af88222867e93fd, type: 3}

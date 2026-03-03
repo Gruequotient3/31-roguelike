@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ef920239265ff13826c4ce9b950f95, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: Assembly-CSharp::TileSpriteData
-  id: Rock
+  type: 4
   sprites:
   - {fileID: 283057198, guid: 650b0139b290c56c8af88222867e93fd, type: 3}
   - {fileID: 352948845, guid: 650b0139b290c56c8af88222867e93fd, type: 3}
