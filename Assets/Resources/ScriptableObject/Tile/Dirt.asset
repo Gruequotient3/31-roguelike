@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ef920239265ff13826c4ce9b950f95, type: 3}
   m_Name: Dirt
   m_EditorClassIdentifier: Assembly-CSharp::TileSpriteData
-  id: Dirt
+  type: 2
   sprites:
   - {fileID: -17208044, guid: 650b0139b290c56c8af88222867e93fd, type: 3}
