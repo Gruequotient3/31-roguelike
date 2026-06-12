@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fecfd70973f7cbf8b70d986d15bd95b, type: 3}
+  m_Name: Hub
+  m_EditorClassIdentifier: Assembly-CSharp::BiomeData
+  biomeName: Hub
+  temperature: 0
+  humidity: 0
+  terrainProp:
+  - influence: 0.2
+    minValue: 0.96
+    type: 1
+    generationType: 1
+  - influence: 0.7
+    minValue: 0.96
+    type: 2
+    generationType: 1
+  - influence: 0.6
+    minValue: 0.98
+    type: 6
+    generationType: 1
+  - influence: 0.6
+    minValue: 0.98
+    type: 8
+    generationType: 1
+  - influence: 0.6
+    minValue: 0.98
+    type: 7
+    generationType: 1
+  - influence: 0.8
+    minValue: 0.96
+    type: 3
+    generationType: 1
+  terrainTypes:
+  - type: 4
+    layerCount: 1
+  - type: 3
+    layerCount: 3
+  - type: 5
+    layerCount: 0
+  maxHeight: 20

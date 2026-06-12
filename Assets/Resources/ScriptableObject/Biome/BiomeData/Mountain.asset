@@ -15,9 +15,16 @@ MonoBehaviour:
   biomeName: Mountain
   temperature: 0.1
   humidity: 0.4
-  terrainProp: []
-  terrainTypes:
-  - corryptedType: 5
+  terrainProp:
+  - influence: 1
+    minValue: 0.97
+    type: 3
+    generationType: 1
+  - influence: 1
+    minValue: 0.99
     type: 5
+    generationType: 1
+  terrainTypes:
+  - type: 5
     layerCount: 0
   maxHeight: 60

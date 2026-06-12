@@ -15,15 +15,24 @@ MonoBehaviour:
   biomeName: Snowy Plain
   temperature: 0.1
   humidity: 0.4
-  terrainProp: []
-  terrainTypes:
-  - corryptedType: 8
-    type: 8
-    layerCount: 1
-  - corryptedType: 3
+  terrainProp:
+  - influence: 0.8
+    minValue: 0.98
+    type: 10
+    generationType: 1
+  - influence: 0.8
+    minValue: 0.98
+    type: 11
+    generationType: 1
+  - influence: 0.8
+    minValue: 0.98
     type: 3
+    generationType: 1
+  terrainTypes:
+  - type: 8
+    layerCount: 1
+  - type: 3
     layerCount: 3
-  - corryptedType: 5
-    type: 5
+  - type: 5
     layerCount: 0
   maxHeight: 10

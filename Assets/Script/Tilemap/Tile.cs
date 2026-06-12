@@ -28,12 +28,14 @@ namespace Roguelike.Tilemap.NTile
 
         public LootTable lootTable = new LootTable();
 
-        public TileData(Sprite sprite, TileType type, int variation, TileFlagBorderDirection flag = 0)
+
+        public TileData(Sprite sprite, TileType type, int variation, LootTable lootTable, TileFlagBorderDirection flag = 0)
         {
             this.sprite     = sprite;
             this.type       = type;
             this.variation  = variation;
             this.flag       = flag; 
+            this.lootTable  = lootTable;
         }
     }
 
@@ -41,6 +43,7 @@ namespace Roguelike.Tilemap.NTile
     {
         protected static GameObject _prefab = ResourcesManager.LoadTilePrefab();
         protected static Dictionary<TileType, TileBorderDirectionSprite[]> _sprites = ResourcesManager.LoadTilesData();
+        protected static Dictionary<TileType, LootTable> _lootTable = ResourcesManager.LoadTilesLootTable();
         public GameObject gameObject = null;
 
         public Vector3Int position;
@@ -167,59 +170,59 @@ namespace Roguelike.Tilemap.NTile
     public class Water : Tile
     {
         public Water(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.WATER][variation].sp, TileType.WATER, variation)) 
+            : base(position, new TileData(_sprites[TileType.WATER][variation].sp, TileType.WATER, variation, _lootTable[TileType.WATER])) 
         { }
     }
     public class Sand : Tile
     {
         public Sand(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.SAND][variation].sp, TileType.SAND, variation)) 
+            : base(position, new TileData(_sprites[TileType.SAND][variation].sp, TileType.SAND, variation, _lootTable[TileType.SAND])) 
         { }
     }
     public class Dirt : Tile
     {
         public Dirt(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.DIRT][variation].sp, TileType.DIRT, variation)) 
+            : base(position, new TileData(_sprites[TileType.DIRT][variation].sp, TileType.DIRT, variation, _lootTable[TileType.DIRT])) 
         { }
     }
     public class Grass : Tile
     {
         public Grass(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.GRASS][variation].sp, TileType.GRASS, variation)) 
+            : base(position, new TileData(_sprites[TileType.GRASS][variation].sp, TileType.GRASS, variation, _lootTable[TileType.GRASS])) 
         { }
     }
     public class Rock : Tile
     {
         public Rock(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.ROCK][variation].sp, TileType.ROCK, variation)) 
+            : base(position, new TileData(_sprites[TileType.ROCK][variation].sp, TileType.ROCK, variation, _lootTable[TileType.ROCK])) 
         { }
     }
 
     public class Snow : Tile
     {
         public Snow(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.SNOW][variation].sp, TileType.SNOW, variation)) 
+            : base(position, new TileData(_sprites[TileType.SNOW][variation].sp, TileType.SNOW, variation, _lootTable[TileType.SNOW])) 
         { }
     }
     
     public class SnowyDirt : Tile
     {
         public SnowyDirt(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.SNOWY_DIRT][variation].sp, TileType.SNOWY_DIRT, variation)) 
+            : base(position, new TileData(_sprites[TileType.SNOWY_DIRT][variation].sp, TileType.SNOWY_DIRT, variation, _lootTable[TileType.SNOWY_DIRT])) 
         { }
     }
 
     public class SnowyGrass : Tile
     {
         public SnowyGrass(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.SNOWY_GRASS][variation].sp, TileType.SNOWY_GRASS, variation)) 
+            : base(position, new TileData(_sprites[TileType.SNOWY_GRASS][variation].sp, TileType.SNOWY_GRASS, variation, _lootTable[TileType.SNOWY_GRASS])) 
         { }
     }
 
     public class SnowyRock : Tile
     {
         public SnowyRock(Vector3Int position, int variation) 
-            : base(position, new TileData(_sprites[TileType.SNOWY_ROCK][variation].sp, TileType.SNOWY_ROCK, variation)) 
+            : base(position, new TileData(_sprites[TileType.SNOWY_ROCK][variation].sp, TileType.SNOWY_ROCK, variation, _lootTable[TileType.SNOWY_ROCK])) 
         { }
     }
 

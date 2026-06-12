@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95557877d4df204389fcf29af9a9677, type: 3}
+  m_Name: WoodSword2
+  m_EditorClassIdentifier: Assembly-CSharp::CraftingRecipe
+  ingredients:
+  - {fileID: 11400000, guid: 9fbb3ae79871e8eb1832bd957a352e07, type: 2}
+  - {fileID: 11400000, guid: 1603e3aed4ce9b9288da8689de315d2d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  resultItem: {fileID: 11400000, guid: c3533b12695735e248c1860986e05169, type: 2}
+  resultCount: 1

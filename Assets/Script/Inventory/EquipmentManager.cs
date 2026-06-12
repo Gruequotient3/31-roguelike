@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class EquipmentManager : MonoBehaviour
 {
-
     public EquipmentSlot[] equipmentSlots;
     public Image[] backgrounds;
     private Item[] lastState = new Item[6];
@@ -20,7 +19,6 @@ public class EquipmentManager : MonoBehaviour
             }
             
             InventoryItem itemInSlot = equipmentSlot.GetComponentInChildren<InventoryItem>();
-
 
             if (itemInSlot == null)
             {

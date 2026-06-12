@@ -30,3 +30,8 @@ MonoBehaviour:
     spSEW: {fileID: 1920983695, guid: f9514d02dbf7945cfa404829e5ca7d76, type: 3}
     spNSE: {fileID: -1208250597, guid: f9514d02dbf7945cfa404829e5ca7d76, type: 3}
     spNEW: {fileID: 200716330, guid: f9514d02dbf7945cfa404829e5ca7d76, type: 3}
+  lootTable:
+    loots:
+    - item: {fileID: 11400000, guid: ffcbf496465338740b86ac7650938c92, type: 2}
+      min: 0
+      max: 0

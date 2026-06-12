@@ -59,6 +59,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Interract",
+                    "type": "Button",
+                    "id": "c7b17762-656f-44b0-9740-81439c3f2a30",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -334,6 +343,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "NumKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b98add0-1d47-4b15-9689-84340c1ceb62",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interract",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

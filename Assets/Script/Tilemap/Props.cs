@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Roguelike.Utils;
 using Roguelike.Resources;
+using UnityEngine.SceneManagement;
 
 namespace Roguelike.Tilemap.NProp{
     
@@ -12,7 +13,14 @@ namespace Roguelike.Tilemap.NProp{
         PINE_TREE,
         OAK_TREE,
         ROCK,
-        // TODO add props
+        ALTAR,
+        BROWN_MUSHROOM,
+        COTTON,
+        RED_TULIP,
+        WHITE_TULIP,
+        CRAFTING_STATION,
+        SNOWY_PINE_TREE,
+        SNOWY_OAK_TREE,
     }
 
     [CreateAssetMenu(fileName = "PropsData", menuName = "Scriptable Objects/Tilemap/Props Data")]
@@ -52,6 +60,8 @@ namespace Roguelike.Tilemap.NProp{
             gameObject = null;
         }
 
+        public virtual void Interract() { }
+
         public void Generate()
         {
             if (gameObject) UnityEngine.Object.Destroy(gameObject);
@@ -84,7 +94,7 @@ namespace Roguelike.Tilemap.NProp{
                     average += -1 * (x + position.x + y + position.y); 
                 }
             }
-            sp.sortingOrder = average / 9 + z;
+            sp.sortingOrder = average / 9 + z + 1;
         }
 
         public void SetOutlineValue(bool value)
@@ -104,6 +114,14 @@ namespace Roguelike.Tilemap.NProp{
                 PropType.PINE_TREE => new PineTree(position),
                 PropType.OAK_TREE => new OakTree(position),
                 PropType.ROCK => new Rock(position),
+                PropType.ALTAR => new Altar(position),
+                PropType.BROWN_MUSHROOM => new BrownMushroom(position),
+                PropType.COTTON => new Cotton(position),
+                PropType.RED_TULIP => new RedTulip(position),
+                PropType.WHITE_TULIP => new WhiteTulip(position),
+                PropType.CRAFTING_STATION => new CraftingStation(position),
+                PropType.SNOWY_PINE_TREE => new SnowyPineTree(position),
+                PropType.SNOWY_OAK_TREE => new SnowyOakTree(position),
                 _             => null
             };
         }
@@ -139,6 +157,68 @@ namespace Roguelike.Tilemap.NProp{
             base(position, _props[PropType.ROCK]) 
         { }
     }
+
+    public class Altar : Prop
+    {
+        public Altar(Vector3Int position) : 
+            base(position, _props[PropType.ALTAR]) 
+        { }
+        public override void Interract()
+        {
+            GameManager.singleton.worldSeed = new System.Random().Next(-100000, 100000);
+            SceneManager.LoadSceneAsync(1);
+        }
+    }
+
+    public class BrownMushroom : Prop
+    {
+        public BrownMushroom(Vector3Int position) : 
+            base(position, _props[PropType.BROWN_MUSHROOM]) 
+        { }
+    }
+
+    public class Cotton : Prop
+    {
+        public Cotton(Vector3Int position) : 
+            base(position, _props[PropType.COTTON]) 
+        { }
+    }
+
+    public class RedTulip : Prop
+    {
+        public RedTulip(Vector3Int position) : 
+            base(position, _props[PropType.RED_TULIP]) 
+        { }
+    }
+
+    public class WhiteTulip : Prop
+    {
+        public WhiteTulip(Vector3Int position) : 
+            base(position, _props[PropType.WHITE_TULIP]) 
+        { }
+    }
+
+    public class CraftingStation : Prop
+    {
+        public CraftingStation(Vector3Int position) : 
+            base(position, _props[PropType.CRAFTING_STATION]) 
+        { }
+    }
+
+    public class SnowyPineTree : Prop
+    {
+        public SnowyPineTree(Vector3Int position) : 
+            base(position, _props[PropType.SNOWY_PINE_TREE]) 
+        { }
+    }
+
+    public class SnowyOakTree : Prop
+    {
+        public SnowyOakTree(Vector3Int position) : 
+            base(position, _props[PropType.SNOWY_OAK_TREE]) 
+        { }
+    }
+
 #endregion
 };
 

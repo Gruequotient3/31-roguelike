@@ -15,15 +15,16 @@ MonoBehaviour:
   biomeName: Snowy Mountain
   temperature: 0
   humidity: 0.4
-  terrainProp: []
+  terrainProp:
+  - influence: 1
+    minValue: 0.97
+    type: 3
+    generationType: 1
   terrainTypes:
-  - corryptedType: 6
-    type: 6
+  - type: 6
     layerCount: 2
-  - corryptedType: 9
-    type: 9
+  - type: 9
     layerCount: 1
-  - corryptedType: 5
-    type: 5
+  - type: 5
     layerCount: 0
   maxHeight: 64

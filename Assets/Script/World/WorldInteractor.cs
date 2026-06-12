@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 using Roguelike.Tilemap.NTile;
 using Roguelike.Tilemap.NProp;
-using UnityEditor.U2D.Aseprite;
 
 public class WorldInteractor : WorldSelector
 {
@@ -14,16 +13,16 @@ public class WorldInteractor : WorldSelector
     
     protected InputAction _break;
     protected InputAction _place;
-
-    private float _range = 2.0f;
+    protected InputAction _interract;
 
     public override void Start()
     {
         base.Start();
         _break = InputSystem.actions.FindAction("Break");
         _place = InputSystem.actions.FindAction("Place");
+        _interract = InputSystem.actions.FindAction("Interract");
 
-        _inventoryManager = FindFirstObjectByType<InventoryManager>();
+        _inventoryManager = InventoryManager.singleton;
     }
 
     void Update()
@@ -49,7 +48,7 @@ public class WorldInteractor : WorldSelector
         {   
             if (_element == 0)
             {   
-                if (!_tileChunk.tilemap.ContainObject(_selectedTile.position + new Vector3Int(0, 0, 1)))
+                if (!_tileChunk.tilemap.ContainObject(_selectedTile.position + new Vector3Int(0, 0, 1), false))
                 {
                     Loot[] loots = _selectedTile.LootTable.GetLoot();
                     if (_inventoryManager && loots != null)
@@ -81,7 +80,7 @@ public class WorldInteractor : WorldSelector
         {
             if (_element == 0 && _inventoryManager)
             {
-                if (!_tileChunk.tilemap.ContainObject(_selectedTile.position + new Vector3Int(0, 0, 1)))
+                if (!_tileChunk.tilemap.ContainObject(_selectedTile.position + new Vector3Int(0, 0, 1), false))
                 {
                     Item item = _inventoryManager.GetSelectedItem(false);
                     if (item != null)
@@ -107,6 +106,14 @@ public class WorldInteractor : WorldSelector
                         }
                     }
                 }
+            }
+        }
+
+        if (_interract.triggered)
+        {
+            if (_element == 1)
+            {
+                _selectedProp.Interract();
             }
         }
     }

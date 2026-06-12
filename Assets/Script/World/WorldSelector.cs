@@ -129,7 +129,8 @@ public abstract class WorldSelector : MonoBehaviour
             else if (_selectedTile == null || tile.position !=  _selectedTile.position)
             {
                 RemoveLastSelectedTile();
-                if (_playerMovement && Vector3.Distance(_playerMovement.tilePosition, tile.position) <= _range)
+                if (tile.Type != TileType.WATER &&
+                    _playerMovement && Vector3.Distance(_playerMovement.tilePosition, tile.position) <= _range)
                 {
                     _selectedTile = tile;
                     _tileChunk = chunk;

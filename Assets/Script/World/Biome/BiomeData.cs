@@ -62,7 +62,7 @@ public class BiomeData : ScriptableObject
             {
                 case TerrainPropGeneration.FOREST:
                     {
-                    float noise = Noise.RandomNoise(x, y, seed+i);
+                    float noise = Noise.RandomNoise(x, y, seed+i+213);
                     float perlin = Noise.PerlinNoise(x * 0.1f, y * 0.1f);
                     float value = noise * perlin;
                     if (value > minValue)
@@ -77,7 +77,7 @@ public class BiomeData : ScriptableObject
                     }
                 case TerrainPropGeneration.RANDOM:
                     {
-                        float value = Noise.RandomNoise(x, y, seed+i);
+                        float value = Noise.RandomNoise(x, y, seed+i+31);
                         if (value > minValue)
                         {
                             value = (value - minValue) * terrain.influence;

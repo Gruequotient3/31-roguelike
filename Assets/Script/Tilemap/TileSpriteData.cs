@@ -6,6 +6,7 @@ public class TileSpriteData : ScriptableObject
 {
     public Roguelike.Tilemap.NTile.TileType type;
     public TileBorderDirectionSprite[] sprites;
+    public LootTable lootTable;
 }
 
 public enum TileFlagBorderDirection

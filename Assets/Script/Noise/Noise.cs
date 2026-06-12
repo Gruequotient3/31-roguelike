@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.UI;
 using UnityEngine;
 
 namespace Roguelike.Noise
@@ -114,12 +115,15 @@ namespace Roguelike.Noise
 
         // }
 
-        private static void GeneratePerlinFractalNoise(Vector2Int size, Vector2 offset, ref float[,] noisemap)
+        private static void GeneratePerlinFractalNoise(Vector2Int size, Vector2 offset, int seed, ref float[,] noisemap)
         {
             float scale = 2.0f;
             int octaves = 3;
             float lacunarity = 2.0f;
             float persistence = 0.6f;
+
+            System.Random _prng = new System.Random(seed + 131);
+            Vector2 seedOffset = new Vector2(_prng.Next(-10000, 10000), _prng.Next(-10000, 10000));
             
             for (int y = 0; y < size.y; y++)
             {
@@ -131,8 +135,8 @@ namespace Roguelike.Noise
                     float maxPossibleHeight = 0.0f;
                     for (int k = 0; k < octaves; k++)
                     {
-                        float sample_x = (x + offset.x) / scale * frequency ;
-                        float sample_y = (y + offset.y) / scale * frequency ;
+                        float sample_x = (x + offset.x + seedOffset.x) / scale * frequency;
+                        float sample_y = (y + offset.y + seedOffset.y) / scale * frequency;
                         
                         float perlinValue = Noise.PerlinNoise(new Vector2(sample_x, sample_y));
                         noise += perlinValue * amplitude;
@@ -147,7 +151,7 @@ namespace Roguelike.Noise
             }
         }
 
-        public static float[,] Generate(Vector2Int size, Vector2 offset, MapType type)
+        public static float[,] Generate(Vector2Int size, Vector2 offset, int seed, MapType type)
         {
             float[,] noisemap = new float[size.x, size.y];
             switch (type)
@@ -159,7 +163,7 @@ namespace Roguelike.Noise
                 //     GenerateDiamondSquare(size, 0.8f, ref noisemap);
                 //     break;
                 case MapType.PERLIN_FRACTAL_NOISE:
-                    GeneratePerlinFractalNoise(size, offset, ref noisemap);
+                    GeneratePerlinFractalNoise(size, offset, seed, ref noisemap);
                     break;
                 default:
                     break;

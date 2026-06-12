@@ -18,6 +18,17 @@ namespace Roguelike.Resources{
             return ret;
         }
 
+        public static Dictionary<TileType, LootTable> LoadTilesLootTable()
+        {
+            Dictionary<TileType, LootTable> ret = new Dictionary<TileType, LootTable>();
+            Object[] tilesData = UnityEngine.Resources.LoadAll("ScriptableObject/Tile", typeof(TileSpriteData));
+            foreach(TileSpriteData data in tilesData)
+            {  
+                ret.Add(data.type, data.lootTable); 
+            }
+            return ret;
+        }
+
         public static Dictionary<PropType, PropData> LoadPropData()
         {
             Dictionary<PropType, PropData> ret = new Dictionary<PropType, PropData>();

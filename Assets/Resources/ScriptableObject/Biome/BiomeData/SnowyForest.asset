@@ -18,27 +18,21 @@ MonoBehaviour:
   terrainProp:
   - influence: 0.5
     minValue: 0.4
-    corruptedType: 1
-    type: 1
+    type: 10
     generationType: 0
   - influence: 0.5
     minValue: 0.4
-    corruptedType: 2
-    type: 2
+    type: 11
     generationType: 0
   - influence: 0.7
     minValue: 0.99
-    corruptedType: 3
     type: 3
     generationType: 1
   terrainTypes:
-  - corryptedType: 8
-    type: 8
+  - type: 8
     layerCount: 1
-  - corryptedType: 3
-    type: 3
+  - type: 3
     layerCount: 3
-  - corryptedType: 5
-    type: 5
+  - type: 5
     layerCount: 0
   maxHeight: 10

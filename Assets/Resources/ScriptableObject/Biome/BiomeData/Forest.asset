@@ -16,29 +16,39 @@ MonoBehaviour:
   temperature: 0.4
   humidity: 0.7
   terrainProp:
-  - influence: 0.5
+  - influence: 0.9
     minValue: 0.4
-    corruptedType: 1
     type: 1
     generationType: 0
-  - influence: 0.5
+  - influence: 0.8
     minValue: 0.4
-    corruptedType: 2
     type: 2
     generationType: 0
   - influence: 0.7
     minValue: 0.99
-    corruptedType: 3
     type: 3
     generationType: 1
-  terrainTypes:
-  - corryptedType: 4
-    type: 4
-    layerCount: 1
-  - corryptedType: 3
-    type: 3
-    layerCount: 3
-  - corryptedType: 5
+  - influence: 0.8
+    minValue: 0.99
+    type: 7
+    generationType: 1
+  - influence: 0.8
+    minValue: 0.99
+    type: 8
+    generationType: 1
+  - influence: 0.7
+    minValue: 0.99
     type: 5
+    generationType: 1
+  - influence: 0.8
+    minValue: 0.98
+    type: 6
+    generationType: 1
+  terrainTypes:
+  - type: 4
+    layerCount: 1
+  - type: 3
+    layerCount: 3
+  - type: 5
     layerCount: 0
   maxHeight: 10

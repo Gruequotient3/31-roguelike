@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95557877d4df204389fcf29af9a9677, type: 3}
+  m_Name: PineTree
+  m_EditorClassIdentifier: Assembly-CSharp::CraftingRecipe
+  ingredients:
+  - {fileID: 11400000, guid: 4b34446a12a65f416b9f46b5bdf6d4c0, type: 2}
+  - {fileID: 11400000, guid: 7306e682161cb0d349456193765c5b4e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  resultItem: {fileID: 11400000, guid: df81abd70cee1680c8a554f16696c836, type: 2}
+  resultCount: 1

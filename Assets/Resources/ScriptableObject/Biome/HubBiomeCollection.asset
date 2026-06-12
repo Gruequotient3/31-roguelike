@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeba2e9d4de49fdfa9b54da255224a83, type: 3}
+  m_Name: HubBiomeCollection
+  m_EditorClassIdentifier: Assembly-CSharp::BiomeCollection
+  biomes:
+  - {fileID: 11400000, guid: 9a23deaa4c3b27031951e96c33549dd2, type: 2}
+  biomeBlendingFactor: 30

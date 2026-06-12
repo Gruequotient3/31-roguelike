@@ -78,8 +78,8 @@ namespace Roguelike.Tilemap{
                 local = Coordinate.IsoToChunkLocalPosition(position); 
             if (!Chunk.IsInBound(local)) return true;
             int index = _arrangement[Chunk.LocalToIndex(local)];
-            if (index == 0) return false;
-            return true;
+            if (index != 0) return true;
+            return false;
         }
 
         public Tile GetTile(Vector3Int position, bool isLocalPos = true)

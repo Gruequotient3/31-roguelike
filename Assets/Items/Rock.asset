@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7f6e4b775c0924482cfc511f7dfd7a, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  tile: {fileID: 0}
+  tile: 0
+  prop: 3
   type: 0
   actionType: 0
+  equipmentType: 0
   range: {x: 5, y: 4}
-  stackable: 0
-  image: {fileID: 1797862386641300854, guid: 5479b642430c56441bd8250db49bd972, type: 3}
+  stackable: 1
+  image: {fileID: 6862579322058986601, guid: 8b0e6a5b701f9a29a92d2ddbc489e852, type: 3}

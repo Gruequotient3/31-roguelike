@@ -15,12 +15,14 @@ MonoBehaviour:
   biomeName: Desert
   temperature: 1
   humidity: 0
-  terrainProp: []
+  terrainProp:
+  - influence: 1
+    minValue: 0.99
+    type: 3
+    generationType: 1
   terrainTypes:
-  - corryptedType: 2
-    type: 2
+  - type: 2
     layerCount: 3
-  - corryptedType: 5
-    type: 5
+  - type: 5
     layerCount: 1
   maxHeight: 10

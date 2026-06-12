@@ -13,18 +13,22 @@ public class BiomeValueGenerator : MonoBehaviour
     [HideInInspector]public Vector2 humidityOffset;
     [HideInInspector]public Vector2 variationOffset;
 
-    private int _seed;
+    private int _seed = 0;
 
     public void Awake()
     {
         singleton = this;
-        _seed = 0;
+    }
+
+    public void SetSeed(int seed)
+    {
+        _seed = seed;
         System.Random _prng = new System.Random(_seed + 69);
         temperatureOffset = new Vector2(_prng.Next(-10000, 10000), _prng.Next(-10000, 10000));
         humidityOffset = new Vector2(_prng.Next(-10000, 10000), _prng.Next(-10000, 10000));
         variationOffset = new Vector2(_prng.Next(-10000, 10000), _prng.Next(-10000, 10000));
-        
     }
+
 
     public float GetTemperature(Vector2 coord) => GetTemperature(coord.x, coord.y);
     public float GetTemperature(float x, float y)
@@ -47,4 +51,5 @@ public class BiomeValueGenerator : MonoBehaviour
     {
         return Noise.RandomNoise((int)x, (int)y, _seed);
     }
+
 }

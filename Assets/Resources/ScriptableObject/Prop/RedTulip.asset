@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb01f8728b49dc974a0ca27c49d9867d, type: 3}
+  m_Name: RedTulip
+  m_EditorClassIdentifier: Assembly-CSharp::Roguelike.Tilemap.NProp.PropData
+  prefabs: {fileID: 6995556881182552076, guid: f401386d817e16df09973b50dc208a07, type: 3}
+  type: 7
+  size: {x: 1, y: 1}
+  isPlacedByPlayer: 0
+  lootTable:
+    loots:
+    - item: {fileID: 11400000, guid: 1321991821b541f09b37ef396e09d652, type: 2}
+      min: 1
+      max: 1

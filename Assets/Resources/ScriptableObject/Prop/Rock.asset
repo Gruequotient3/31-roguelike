@@ -16,3 +16,8 @@ MonoBehaviour:
   type: 3
   size: {x: 1, y: 1}
   isPlacedByPlayer: 0
+  lootTable:
+    loots:
+    - item: {fileID: 11400000, guid: caf3cf69904c866cd983097a5bc4f16c, type: 2}
+      min: 1
+      max: 1

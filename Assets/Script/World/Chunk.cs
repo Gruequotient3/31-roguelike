@@ -8,8 +8,8 @@ using Roguelike.Utils;
 
 public class Chunk
 {
-    public static readonly int k_xSize = 17;
-    public static readonly int k_ySize = 17;
+    public static readonly int k_xSize = 16;
+    public static readonly int k_ySize = 16;
     public static readonly int k_zSize = 64;
 
     public Tilemap tilemap;  
@@ -22,10 +22,16 @@ public class Chunk
         tilemap.gameObject.transform.SetParent(parent.transform);
     }
 
-    public void Generate(BiomeCollection biomeCollection)
+    public void InitializeWorldData(BiomeCollection biomeCollection, int seed)
     {
         tilemap.Clear();
-        float[,] noiseMap = MapGenerator.Generate(new Vector2Int(k_xSize + 1, k_ySize + 1), new Vector2(position.x * Chunk.k_xSize, position.y * Chunk.k_ySize), MapType.PERLIN_FRACTAL_NOISE);
+        float[,] noiseMap = 
+            MapGenerator.Generate(
+                new Vector2Int(k_xSize + 1, k_ySize + 1), 
+                new Vector2(position.x * Chunk.k_xSize, position.y * Chunk.k_ySize), 
+                seed,  
+                MapType.PERLIN_FRACTAL_NOISE
+            );
         float[,] altitudeMap = biomeCollection.GetAltitudeMap(new Vector2Int(position.x, position.y), ref noiseMap);
         for (int y = 0; y < k_ySize; ++y)
         {
@@ -49,12 +55,16 @@ public class Chunk
                     tilemap.SetTile(tilePosition, tile, false);
                 }
                 Vector3Int propPosition = new Vector3Int(x + position.x * k_xSize, y + position.y * k_ySize, maxz+1);
-                PropType type = biome.GetPropType(propPosition.x, propPosition.y, 0); 
+                PropType type = biome.GetPropType(propPosition.x, propPosition.y, seed); 
                 if (type != PropType.NONE) tilemap.SetProp(propPosition, Prop.GetPropFromType(type, propPosition), false);
 
             }
         }
         UpdateBorderedTile();
+    }
+
+    public void Generate()
+    {
         tilemap.Generate();
     }
 
@@ -154,6 +164,11 @@ public class Chunk
                 tilemap.GetTile(local).SetTileBorderDirection(flag);
             }
         }
+    }
+
+    public void SaveChunk()
+    {
+        
     }
 
     public static bool IsInBound(Vector3Int local)
